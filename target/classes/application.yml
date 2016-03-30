@@ -1,7 +1,0 @@
-server:
-  port: 8181
-
-
-spring:
-  application:
-    name: attendee-service

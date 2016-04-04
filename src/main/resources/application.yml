@@ -5,3 +5,20 @@ server:
 spring:
   application:
     name: attendee-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://localhost/test
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update

@@ -17,8 +17,18 @@ spring:
     url: jdbc:mysql://localhost/test
     username: root
     password:
-    driver-class-name: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
+
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:h2:mem:attendee_service
+    username: sa
+    driverClassName: org.h2.Driver
+    platform: h2

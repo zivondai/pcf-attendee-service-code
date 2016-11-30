@@ -1,0 +1,17 @@
+---
+resources:
+- name: attendee-service
+  type: git
+  source:
+    uri: https://github.com/pivotal-enablement/attendee-service
+    branch: master
+
+jobs:
+- name: package
+  public: true
+  plan:
+  - get: attendee-service
+  - task: package
+    privileged: true
+    file: attendee-service/ci/tasks/package.yml
+

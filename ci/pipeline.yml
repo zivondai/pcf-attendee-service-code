@@ -4,14 +4,28 @@ resources:
   type: git
   source:
     uri: https://github.com/pivotal-enablement/attendee-service
-    branch: master
+    branch: concourse_deployment
+
+- name: deploy-attendee-service
+  type: cf
+  source:
+    api: https://api.run.pez.pivotal.io
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: pivot-twhitney
+    space: pal
+    skip_cert_check: false
 
 jobs:
-- name: package
+- name: build
   public: true
   plan:
   - get: attendee-service
+    trigger: true
   - task: package
-    privileged: true
     file: attendee-service/ci/tasks/package.yml
+  - put: deploy-attendee-service
+    params:
+      manifest: attendee-service/manifest.yml
+      path: package-output/attendee-service.jar
 

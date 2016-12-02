@@ -9,12 +9,12 @@ resources:
 - name: deploy-attendee-service
   type: cf
   source:
-    api: https://api.run.pez.pivotal.io
+    api: api.run.pez.pivotal.io
     username: {{cf-user}}
     password: {{cf-password}}
     organization: pivot-twhitney
     space: pal
-    skip_cert_check: false
+    skip_cert_check: true
 
 jobs:
 - name: build

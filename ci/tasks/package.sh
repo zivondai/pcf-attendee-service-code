@@ -10,7 +10,7 @@ pushd attendee-service
   ./mvnw test
 
   echo "Packaging JAR"
-  ./mvnw package -Dmaven.test.skip=true
+  ./mvnw package -Dmaven.test.skip=true > /dev/null
 popd
 
 jar_count=`find attendee-service/target -type f -name *.jar | wc -l`

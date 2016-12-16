@@ -6,9 +6,6 @@ pushd attendee-service
   echo "Resolving Maven dependencies"
   ./mvnw clean compile > /dev/null
 
-  echo "Running tests"
-  ./mvnw test
-
   echo "Packaging JAR"
   ./mvnw package -Dmaven.test.skip=true > /dev/null
 popd

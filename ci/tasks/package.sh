@@ -4,7 +4,7 @@ set -e +x
 
 pushd attendee-service
   echo "Packaging JAR"
-  ./mvnw clean package -Dmaven.test.skip=true
+  ./mvnw clean package -DskipTests
 popd
 
 jar_count=`find attendee-service/target -type f -name *.jar | wc -l`

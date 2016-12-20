@@ -30,7 +30,7 @@ if [ -z $attendee_service_url ]; then
   exit 1
 fi
 
-echo $attendee_service_url >> deployment_artifacts/url.txt
+echo $attendee_service_url >> deployment-artifacts/url.txt
 
 echo "Deployment Succeeded"
 exit 0

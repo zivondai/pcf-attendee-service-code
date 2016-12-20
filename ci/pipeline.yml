@@ -30,11 +30,5 @@ jobs:
       CF_PASSWORD: {{cf-password}}
       CF_ORG: pivot-twhitney
       CF_SPACE: pal
-- name: smoke_test
-  public: true
-  plan:
-  - get: attendee-service-source
-    trigger: true
-    passed: [deploy]
   - task: smoke_test
     file: attendee-service-srouce/ci/tasks/smoke_test.yml

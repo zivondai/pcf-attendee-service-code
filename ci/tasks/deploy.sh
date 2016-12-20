@@ -3,7 +3,7 @@
 set -e +x
 
 apt-get update
-apt-get -y install apt-transport-https
+apt-get -y install apt-transport-https wget
 # installtion instructions from https://github.com/cloudfoundry/cli
 # first add the Cloud Foundry Foundation public key and package repository to your system
 wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -

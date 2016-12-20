@@ -15,6 +15,7 @@ if [ $jar_count -gt 1 ]; then
 fi
 
 find attendee-service-source/target -type f -name *.jar -exec cp "{}" build-artifacts/attendee-service.jar \;
+cp attendee-service-source/manifest.yml build-artifacts/manifest.yml
 
 echo "Done packaging"
 exit 0

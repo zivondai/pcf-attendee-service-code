@@ -1,0 +1,14 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: java
+    tag: "8"
+
+inputs:
+- name: deployment_artifacts
+
+run:
+  path: attendee-service-source/ci/tasks/smoke_test.sh

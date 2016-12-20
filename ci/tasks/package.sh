@@ -2,7 +2,7 @@
 
 set -e +x
 
-pushd attendee-service
+pushd attendee-service-source
   echo "Packaging JAR"
   ./mvnw clean package -DskipTests
 popd
@@ -14,7 +14,7 @@ if [ $jar_count -gt 1 ]; then
   exit 1
 fi
 
-find attendee-service/target -type f -name *.jar -exec cp "{}" package-output/attendee-service.jar \;
+find attendee-service/target -type f -name *.jar -exec cp "{}" build-artifacts/attendee-service.jar \;
 
 echo "Done packaging"
 exit 0

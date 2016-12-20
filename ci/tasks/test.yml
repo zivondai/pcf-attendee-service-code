@@ -10,9 +10,5 @@ image_resource:
 inputs:
 - name: attendee-service-source
 
-outputs:
-- name: build-artifacts
-
 run:
-  path: attendee-service/ci/tasks/package.sh
-
+  path: attendee-service/ci/tasks/test.sh

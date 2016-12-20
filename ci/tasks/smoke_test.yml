@@ -8,7 +8,7 @@ image_resource:
     tag: "8"
 
 inputs:
-- name: deployment_artifacts
+- name: deployment-artifacts
 
 run:
   path: attendee-service-source/ci/tasks/smoke_test.sh

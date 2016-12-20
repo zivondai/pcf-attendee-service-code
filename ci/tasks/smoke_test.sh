@@ -2,7 +2,7 @@
 
 set -e +x
 
-if [ ! -e deployment_artifacts/url.txt ]; then
+if [ ! -e deployment-artifacts/url.txt ]; then
   echo "Failed to find deployment url"
   exit 1
 fi

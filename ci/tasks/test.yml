@@ -11,4 +11,4 @@ inputs:
 - name: attendee-service-source
 
 run:
-  path: attendee-service/ci/tasks/test.sh
+  path: attendee-service-source/ci/tasks/test.sh

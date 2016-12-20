@@ -31,4 +31,4 @@ jobs:
       CF_ORG: pivot-twhitney
       CF_SPACE: pal
   - task: smoke_test
-    file: attendee-service-srouce/ci/tasks/smoke_test.yml
+    file: attendee-service-source/ci/tasks/smoke_test.yml

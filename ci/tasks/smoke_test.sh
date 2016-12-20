@@ -8,10 +8,9 @@ if [ ! -e deployment-artifacts/url.txt ]; then
 fi
 
 attendee_service_url=`cat deployment-artifacts/url.txt`
-
 pushd attendee-service-source
-  puts "Running smoke tests"
-  smoke_test/bin/test $attendee_service_url
+  echo "Running smoke tests for Attendee Service deployed at $attendee_service_url"
+  smoke_tests/bin/test $attendee_service_url
 popd
 
 exit 0

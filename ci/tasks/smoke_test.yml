@@ -8,6 +8,7 @@ image_resource:
     tag: "8"
 
 inputs:
+- name: attendee-service-source
 - name: deployment-artifacts
 
 run:

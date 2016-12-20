@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e +x
+set -ex
 
 if [ ! -e deployment-artifacts/url.txt ]; then
   echo "Failed to find deployment url"

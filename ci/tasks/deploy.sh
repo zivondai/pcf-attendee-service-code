@@ -2,13 +2,15 @@
 
 set -e +x
 
+apt-get update
+apt-get -y install apt-transport-https
 # installtion instructions from https://github.com/cloudfoundry/cli
 # first add the Cloud Foundry Foundation public key and package repository to your system
-wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
+echo "deb http://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
 # then, update your local package index, then finally install the cf CLI
-sudo apt-get update
-sudo apt-get install cf-cli
+apt-get update
+apt-get install -y cf-cli
 
 if [ ! `which cf` ]; then
   echo 'CF Installation Failed'

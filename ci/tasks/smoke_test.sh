@@ -7,7 +7,7 @@ if [ ! -e deployment-artifacts/url.txt ]; then
   exit 1
 fi
 
-attendee_service_url=`cat deployment_artifacts/url.txt`
+attendee_service_url=`cat deployment-artifacts/url.txt`
 
 pushd attendee-service-source
   puts "Running smoke tests"

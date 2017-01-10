@@ -30,5 +30,9 @@ jobs:
       CF_PASSWORD: {{cf-password}}
       CF_ORG: pivot-twhitney
       CF_SPACE: pal
+- name: smoke_test
+  plan:
   - task: smoke_test
     file: attendee-service-source/ci/tasks/smoke_test.yml
+    params:
+      ATTENDEE_SERVICE_URL: https://attendee-service-clotty-megalopolis.cfapps.pez.pivotal.io 

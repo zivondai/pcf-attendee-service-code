@@ -9,7 +9,6 @@ image_resource:
 
 inputs:
 - name: attendee-service-source
-- name: deployment-artifacts
 
 run:
   path: attendee-service-source/ci/tasks/smoke_test.sh

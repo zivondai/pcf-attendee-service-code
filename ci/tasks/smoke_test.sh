@@ -2,15 +2,14 @@
 
 set -ex
 
-if [ ! -e deployment-artifacts/url.txt ]; then
-  echo "Failed to find deployment url"
+if [ -z $ATTENDEE_SERVICE_URL ]; then
+  echo "ATTENDEE_SERVICE_URL not set"
   exit 1
 fi
 
-attendee_service_url=`cat deployment-artifacts/url.txt`
 pushd attendee-service-source
-  echo "Running smoke tests for Attendee Service deployed at $attendee_service_url"
-  smoke_tests/bin/test $attendee_service_url
+  echo "Running smoke tests for Attendee Service deployed at $ATTENDEE_SERVICE_URL"
+  smoke_tests/bin/test $ATTENDEE_SERVICE_URL
 popd
 
 exit 0

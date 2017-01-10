@@ -11,7 +11,7 @@ inputs:
 - name: attendee-service-source
 
 outputs:
-- name: build-artifacts
+- name: package-output
 
 run:
   path: attendee-service-source/ci/tasks/package.sh

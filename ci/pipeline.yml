@@ -5,6 +5,15 @@ resources:
   source:
     uri: https://github.com/pivotal-enablement/attendee-service
     branch: smoke_tests
+- name: deploy-attendee-service
+  type: cf
+  source:
+    api: api.run.pez.pivotal.io
+    username: {{cf-user}}
+    password: {{cf-password}}
+    organization: pivot-twhitney
+    space: pal
+    skip_cert_check: true
 
 jobs:
 - name: test
@@ -14,6 +23,7 @@ jobs:
     trigger: true
   - task: test
     file: attendee-service-source/ci/tasks/test.yml
+
 - name: deploy
   public: true
   plan:
@@ -22,16 +32,16 @@ jobs:
     passed: [test]
   - task: package
     file: attendee-service-source/ci/tasks/package.yml
-  - task: deploy
-    file: attendee-service-source/ci/tasks/deploy.yml
+  - put: deploy-attendee-service
     params:
-      CF_API: api.run.pez.pivotal.io
-      CF_USER: {{cf-user}}
-      CF_PASSWORD: {{cf-password}}
-      CF_ORG: pivot-twhitney
-      CF_SPACE: pal
+      manifest: attendee-service/manifest.yml
+      path: package-output/attendee-service.jar
+
 - name: smoke_test
   plan:
+  - get: attendee-service-source
+    trigger: true
+    passed: [deploy]
   - task: smoke_test
     file: attendee-service-source/ci/tasks/smoke_test.yml
     params:

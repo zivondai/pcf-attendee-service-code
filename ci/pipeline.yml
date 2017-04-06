@@ -3,17 +3,17 @@ resources:
 - name: attendee-service
   type: git
   source:
-    uri: https://github.com/pivotal-enablement/attendee-service
+    uri: https://github.com/YOUR_GITHUB_USER_NAME/pcf-attendee-service-code   #<----- REPLACE ME
     branch: concourse_deployment
 
 - name: deploy-attendee-service
   type: cf
   source:
-    api: api.run-02.haas-66.pez.pivotal.io
+    api: YOUR_PCF_API_ENDPOINT        #<----- REPLACE ME
     username: {{cf-user}}
     password: {{cf-password}}
-    organization: twhitney-pal
-    space: pal
+    organization: YOUR_CI_USER_ORG    #<----- REPLACE ME
+    space: YOUR_CI_USER_SPACE         #<----- REPLACE ME
     skip_cert_check: true
 
 jobs:

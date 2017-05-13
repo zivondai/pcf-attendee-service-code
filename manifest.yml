@@ -1,8 +1,8 @@
 ---
 declared-services:
-   attendee-mysql:
-   label: cleardb
-   plan: spark
+  attendee-mysql:
+  label: cleardb
+  plan: spark
 applications:
 - name: ziv-attendee-service
   host: ziv-attendee-${random-word}
